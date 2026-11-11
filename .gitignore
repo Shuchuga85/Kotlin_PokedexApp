@@ -1,0 +1,47 @@
+# Build e arquivos gerados (APK, AAB, DEX, Classes, Gradle, Bin, Out)
+*.apk
+*.aar
+*.ap_
+*.aab
+*.dex
+*.class
+*.kt.class
+bin/
+gen/
+out/
+.gradle/
+build/
+
+# Configurações locais e Proguard
+local.properties
+proguard/
+*.log
+
+# Android Studio / IntelliJ (mantendo o essencial e ignorando workspace, caches e módulos)
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/assetWizardSettings.xml
+.idea/dictionaries
+.idea/libraries
+.idea/caches
+.idea/navEditor.xml
+*.iml
+.navigation/
+captures/
+.externalNativeBuild/
+.cxx/
+output-metadata.json
+
+# Segurança e chaves de assinatura (NUNCA envie as suas chaves para o Git)
+*.jks
+*.keystore
+*.pk8
+*.p12
+
+# Google Services (descomente se desejar ocultar do repositório público)
+# google-services.json
+
+# Arquivos do Sistema Operacional
+.DS_Store
+Thumbs.db
