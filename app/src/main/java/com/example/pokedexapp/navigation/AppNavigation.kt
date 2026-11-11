@@ -63,7 +63,9 @@ fun AppNavigation(
                     if (id != null) {
                         navController.navigate(
                             Screen.PokemonDetail.createRoute(id)
-                        )
+                        ){
+                            launchSingleTop = true
+                        }
                     }
                 }
             )
@@ -109,7 +111,9 @@ fun AppNavigation(
                     if (id != null) {
                         navController.navigate(
                             Screen.PokemonDetail.createRoute(id)
-                        )
+                        ) {
+                            launchSingleTop = true
+                        }
                     }
                 }
             )
@@ -153,7 +157,9 @@ fun AppNavigation(
                     if (id != null) {
                         navController.navigate(
                             Screen.PokemonDetail.createRoute(id)
-                        )
+                        ) {
+                            launchSingleTop = true
+                        }
                     }
                 }
             )

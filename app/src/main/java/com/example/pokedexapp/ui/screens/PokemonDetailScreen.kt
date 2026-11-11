@@ -18,7 +18,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 
 import coil3.compose.AsyncImage
-
+import com.example.pokedexapp.model.typeIconUrl
 import com.example.pokedexapp.model.pokemonArtworkUrl
 import androidx.compose.runtime.Composable
 
@@ -117,7 +117,38 @@ fun PokemonDetailScreen(
 
                 Text("Types", fontWeight = FontWeight.Bold)
 
-                Text(pokemon.types.joinToString(", "))
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+
+                    pokemon.types.forEach { typeName ->
+
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.spacedBy(4.dp)
+                        ) {
+
+                            val iconUrl = typeIconUrl(typeName)
+
+                            if (iconUrl != null) {
+
+                                AsyncImage(
+                                    model = iconUrl,
+                                    contentDescription = "$typeName type",
+                                    modifier = Modifier.size(44.dp),
+                                    contentScale = ContentScale.Fit
+                                )
+                            }
+
+                            Text(
+                                text = typeName.replaceFirstChar {
+                                    it.uppercase()
+                                }
+                            )
+                        }
+                    }
+                }
 
                 Text("Abilities", fontWeight = FontWeight.Bold)
 

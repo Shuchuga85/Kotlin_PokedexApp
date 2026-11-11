@@ -10,7 +10,12 @@ import androidx.compose.foundation.layout.padding
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.size
+import androidx.compose.ui.layout.ContentScale
+import coil3.compose.AsyncImage
 
+import com.example.pokedexapp.model.typeIconUrl
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
@@ -103,16 +108,32 @@ fun TypeRow(
     onClick: () -> Unit
 ) {
 
-    Text(
-        text = type.name.replaceFirstChar {
-            it.uppercase()
-        },
-
-        fontSize = 20.sp,
-
+    Row(
         modifier = Modifier
             .fillMaxWidth()
             .clickable { onClick() }
-            .padding(16.dp)
-    )
+            .padding(12.dp),
+
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+
+        val iconUrl = typeIconUrl(type.name)
+
+        if (iconUrl != null) {
+            AsyncImage(
+                model = iconUrl,
+                contentDescription = "${type.name} type",
+                modifier = Modifier.size(48.dp),
+                contentScale = ContentScale.Fit
+            )
+        }
+
+        Text(
+            text = type.name.replaceFirstChar {
+                it.uppercase()
+            },
+            fontSize = 20.sp
+        )
+    }
 }
